@@ -18,7 +18,7 @@ do
 	capacity=""
     gptid=`glabel status -s "${drive}p1" | awk '{print $1}'`
     serial=`smartctl -i /dev/${drive} | grep "Serial Number" | awk '{print $3}'`
-    model=`smartctl -i /dev/${drive} | grep "Device Model" | awk '{print $3 $4}'`
+    model=`smartctl -i /dev/${drive} | grep "Device Model" | awk '{print $3, $4}'`
     capacity=`smartctl -i /dev/${drive} | grep "Capacity" | awk '{print $5 $6}' | tr -d "[]"`
     printf "| %-7s | %-42s | %-20s | %-25s | %-8s | %-3s | %-4s | %-9s |\n" "$drive" "$gptid" "$serial" "$model" "$capacity"
     echo "+---------+--------------------------------------------+----------------------+---------------------------+----------+-----+------+-----------+"
@@ -31,7 +31,7 @@ do
 	capacity=""
     gptid=`glabel status -s "${drive}p2" | awk '{print $1}'`
     serial=`smartctl -i /dev/${drive} | grep "Serial Number" | awk '{print $3}'`
-    model=`smartctl -i /dev/${drive} | grep "Device Model" | awk '{print $3 $4}'`
+    model=`smartctl -i /dev/${drive} | grep "Device Model" | awk '{print $3, $4}'`
     capacity=`smartctl -i /dev/${drive} | grep "Capacity" | awk '{print $5 $6}' | tr -d "[]"`
     printf "| %-7s | %-42s | %-20s | %-25s | %-8s | %-3s | %-4s | %-9s |\n" "$drive" "$gptid" "$serial" "$model" "$capacity"
     echo "+---------+--------------------------------------------+----------------------+---------------------------+----------+-----+------+-----------+"
@@ -46,7 +46,7 @@ do
 		gptid=`glabel status -s "nvd${drive}" | awk '{print $1}'`
 	fi
     serial=`smartctl -i /dev/nvme${drive} | grep "Serial Number" | awk '{print $3}'`
-    model=`smartctl -i /dev/nvme${drive} | grep "Model Number" | awk '{print $3 $4}'`
+    model=`smartctl -i /dev/nvme${drive} | grep "Model Number" | awk '{print $3, $4}'`
     capacity=`smartctl -i /dev/nvme${drive} | grep "Capacity" | awk '{print $5 $6}' | tr -d "[]"`
     printf "| %-7s | %-42s | %-20s | %-25s | %-8s | %-3s | %-4s | %-9s |\n" "nvd$drive" "$gptid" "$serial" "$model" "$capacity"
     echo "+---------+--------------------------------------------+----------------------+---------------------------+----------+-----+------+-----------+"
