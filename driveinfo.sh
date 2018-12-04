@@ -1,4 +1,5 @@
 #!/bin/sh
+# Based off Bidule0hm's script in https://forums.freenas.org/index.php?threads/scripts-to-report-smart-zpool-and-ups-status-hdd-cpu-t%C2%B0-hdd-identification-and-backup-the-config.27365/
 singlepartdrives="ada0 ada1 ada2 ada3 ada4 ada5 ada6 ada7 da1 da2 da3 da4 da5 "
 dualpartdrives="da0 da6 da7 da8 da9 da10 da11 da12 da13"
 # Due to naming conventions in BSD for NVMe drives, the nvd convention is used for drives, and nvme is used for the controller.
