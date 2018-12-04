@@ -48,7 +48,7 @@ do
     serial=`smartctl -i /dev/nvme${drive} | grep "Serial Number" | awk '{print $3}'`
     model=`smartctl -i /dev/nvme${drive} | grep "Model Number" | awk '{print $3 $4}'`
     capacity=`smartctl -i /dev/nvme${drive} | grep "Capacity" | awk '{print $5 $6}' | tr -d "[]"`
-    printf "| %-7s | %-42s | %-20s | %-25s | %-8s | %-3s | %-4s | %-9s |\n" "nvme$drive" "$gptid" "$serial" "$model" "$capacity"
+    printf "| %-7s | %-42s | %-20s | %-25s | %-8s | %-3s | %-4s | %-9s |\n" "nvd$drive" "$gptid" "$serial" "$model" "$capacity"
     echo "+---------+--------------------------------------------+----------------------+---------------------------+----------+-----+------+-----------+"
 done
 echo ""
